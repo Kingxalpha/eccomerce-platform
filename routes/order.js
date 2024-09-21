@@ -7,4 +7,4 @@ router.post('/checkout', auth, placeOrder);
 router.get('/history', auth, getOrderHistory);
 router.get('/track/:orderId', auth, trackOrder);
 
-module.exports = router;
+module.exports = orderRoute;

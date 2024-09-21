@@ -9,4 +9,4 @@ router.put('/update', auth, updateCart);
 router.delete('/remove', auth, removeFromCart);
 router.post('/save-for-later', auth, saveForLater);
 
-module.exports = router;
+module.exports = cartRoute;
