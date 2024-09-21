@@ -7,4 +7,4 @@ router.get('/', adminAuth, getAllUsers);
 router.post('/:userId/reset-password', adminAuth, resetUserPassword);
 router.delete('/:userId', adminAuth, deleteUser);
 
-module.exports = router;
+module.exports = adminUserRoute;

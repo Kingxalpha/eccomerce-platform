@@ -7,4 +7,4 @@ router.get('/orders', adminAuth, getAllOrders);
 router.put('/orders/:orderId/status', adminAuth, updateOrderStatus);
 router.post('/orders/:orderId/return', adminAuth, handleReturns);
 
-module.exports = router;
+module.exports = adminRoute;
