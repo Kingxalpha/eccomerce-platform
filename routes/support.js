@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
-const { contactSupport, getFAQs } = require('../controllers/supportController');
+const supportRouter = express.Router();
+const { contactSupport, getFAQs } = require('../controllers/SupportCtrl');
 const { auth } = require('../middlewares/auth');
 
-router.post('/contact', auth, contactSupport);
-router.get('/faqs', getFAQs);
+supportRouter.post('/contact', auth, contactSupport);
+supportRouter.get('/faqs', getFAQs);
 
-module.exports = supportRoute;
+module.exports = supportRouter;
