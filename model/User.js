@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   verificationToken: String,
   tokenExpires: Date,
   profile: {
-    name: String,
+    username: String,
     address: String,
     paymentInfo: {
       cardNumber: String,

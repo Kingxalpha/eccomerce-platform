@@ -1,17 +1,13 @@
 const express = require('express');
-const router = express.Router();
-const { getProducts, getProductById, addProduct, updateProduct, deleteProduct } = require('../controllers/productController');
-const { adminAuth } = require('../middlewares/auth');
-const multer = require('multer');
+const productRouter = express.Router();
+const { getProducts, getProductById, addProduct, updateProduct, deleteProduct, addRating } = require('../controllers/ProductCtrl');
+const { auth, adminAuth } = require('../middlewares/protectedRoute');
 
-// Configure Multer for image uploads
-const storage = multer.memoryStorage(); // Or use multer-s3 for AWS S3
-const upload = multer({ storage });
+productRouter.get('/', auth, getProducts);
+productRouter.get('/:id', auth, getProductById);
+productRouter.post('/create', auth, addProduct);
+productRouter.put('/:id', auth, updateProduct);
+productRouter.delete('/:id', adminAuth, deleteProduct);
+productRouter.post('/:productId/rate', auth , addRating)
 
-router.get('/', getProducts);
-router.get('/:id', getProductById);
-router.post('/', adminAuth, upload.array('images', 5), addProduct);
-router.put('/:id', adminAuth, upload.array('images', 5), updateProduct);
-router.delete('/:id', adminAuth, deleteProduct);
-
-module.exports = productRoute;
+module.exports = productRouter;
